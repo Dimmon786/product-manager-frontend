@@ -4,8 +4,23 @@ import {ListComponent} from "./pages/list/list.component";
 import {CreateComponent} from "./pages/create/create.component";
 import {ProductComponent} from "./pages/product/product.component";
 import {ProductListComponent} from "./pages/product-list/product-list.component";
+import {HeaderComponent} from "./elements/header/header.component";
+import {LoginComponent} from "./pages/login/login.component";
+import {RegistrationComponent} from "./pages/registration/registration.component";
 
 export const routes: Routes = [
+  {
+    path: "index",
+    component: HeaderComponent
+  },
+  {
+    path: "auth/login",
+    component: LoginComponent
+  },
+  {
+    path: "auth/registration",
+    component: RegistrationComponent
+  },
   {
     path: "categories",
     component: CategoriesComponent

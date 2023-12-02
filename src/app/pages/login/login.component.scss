@@ -1,0 +1,33 @@
+.login {
+ display: grid;
+  align-content: center;
+  margin-top: 50px;
+  grid-template-rows: auto ;
+  justify-items: center;
+
+}
+
+mat-card-header {
+  display: flex;
+  justify-content: center;
+  font-size: large;
+  margin-bottom: 10px;
+}
+
+.flex{
+  display: flex;
+  flex-direction: column;
+}
+.email {
+
+}
+
+.password{
+
+}
+
+.loginButton {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}

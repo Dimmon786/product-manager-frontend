@@ -1,0 +1,19 @@
+<form class="registration" (ngSubmit)="submit()">
+<mat-card>
+  <mat-card-header>Registration</mat-card-header>
+  <mat-card-content class="flex">
+    <mat-form-field class="name">
+      <mat-label>First name</mat-label>
+      <input [formControl]="formGroup.controls.firstName" type="firstName" matInput>
+      <mat-error *ngIf="formGroup.controls.firstName.hasError('required')">
+
+      </mat-error>
+        <mat-label>Last Name</mat-label>
+        <input [formControl]="formGroup.controls.lastName" type="lastName" matInput>
+        <mat-error *ngIf="formGroup.controls.lastName.hasError('reuqired')">
+
+        </mat-error>
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>
+</form>
