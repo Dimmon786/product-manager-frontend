@@ -1,0 +1,27 @@
+<p>
+  <mat-toolbar color="primary">
+    <div>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Gemstone Galleria</span>
+    </div>
+    <div class="right">
+      <span class="example-spacer"></span>
+      <button mat-button [matMenuTriggerFor]="CategoriesComponent" class="categories-icon" aria-label="Example icon-button with heart icon">
+        <span>Categories</span>
+        <mat-menu #CategoriesComponent="matMenu">
+            <button mat-menu-item routerLink="category/list/">List</button>
+            <button mat-menu-item routerLink="category/create/">Create</button>
+        </mat-menu>
+      </button>
+      <button mat-button [matMenuTriggerFor]="ProductComponent" class="products-icon" aria-label="Example icon-button with share icon">
+        <span>Products</span>
+        <mat-menu #ProductComponent="matMenu">
+          <button mat-menu-item routerLink="products/list/">Products List</button>
+          <button mat-menu-item routerLink="products/create">Create</button>
+        </mat-menu>
+      </button>
+    </div>
+  </mat-toolbar>
+</p>
