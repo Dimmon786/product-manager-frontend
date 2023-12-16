@@ -20,14 +20,15 @@ export class LoginComponent {
   router = inject(Router)
 
 formGroup= new FormGroup({
-  email: new FormControl<string>("", [Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-] {2,10}$/g), Validators.required]),
+  email: new FormControl<string>("", [Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,10}$/g), Validators.required]),
   password: new FormControl<string>("", [Validators.required])
 });
   submit() {
     console.log(this.formGroup);
     if(this.formGroup.valid){
       this.userControllerService.login(this.formGroup.getRawValue()).subscribe(value => {
-        this.router.navigateByUrl( "categories")
+        localStorage.setItem("ACCESS_TOKEN", value.token!)
+        this.router.navigateByUrl( "/categories")
       })
     }
   }

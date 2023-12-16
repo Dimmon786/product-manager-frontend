@@ -7,6 +7,7 @@ import {ProductListComponent} from "./pages/product-list/product-list.component"
 import {HeaderComponent} from "./elements/header/header.component";
 import {LoginComponent} from "./pages/login/login.component";
 import {RegistrationComponent} from "./pages/registration/registration.component";
+import {authGuard} from "./pages/auth.guard";
 
 export const routes: Routes = [
   {
@@ -31,7 +32,8 @@ export const routes: Routes = [
   },
   {
     path: "category/create",
-    component: CreateComponent
+    component: CreateComponent,
+    canActivate: [authGuard]
   },
   {
     path: "products",
@@ -43,7 +45,8 @@ export const routes: Routes = [
   },
   {
     path: "products/create",
-    component: ProductComponent
+    component: ProductComponent,
+    canActivate: [authGuard]
   }
 ];
 

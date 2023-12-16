@@ -8,7 +8,8 @@ import { provideHttpClient, withInterceptors} from "@angular/common/http";
 import {authorizationInterceptor} from "./interceptors/authorization.interceptor";
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideAnimations(),
+  providers: [provideRouter(routes),
+    provideAnimations(),
     provideHttpClient(withInterceptors([authorizationInterceptor])),
     importProvidersFrom(
       ApiModule.forRoot(() => {

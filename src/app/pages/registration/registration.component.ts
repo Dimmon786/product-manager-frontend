@@ -5,18 +5,13 @@ import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatMenuModule} from "@angular/material/menu";
-import {
-  CategoryControllerService,
-  ProductControllerService,
-  RegisterDto,
-  UserControllerService
-} from "../../openapi-client";
-import {Router, UrlTree} from "@angular/router";
+import {UserControllerService} from "../../openapi-client";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'pm-registration',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatCardModule, MatInputModule, ReactiveFormsModule, MatButtonModule, MatMenuModule],
+  imports: [CommonModule, FormsModule, MatCardModule, MatInputModule, ReactiveFormsModule, MatButtonModule, MatMenuModule, RouterLink],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.scss'
 })
@@ -31,7 +26,7 @@ export class RegistrationComponent {
     city: new FormControl<string>("", [Validators.required]),
     zip: new FormControl<string>("", [Validators.required]),
     country: new FormControl<string>("", [Validators.required]),
-    email: new FormControl<string>("", [Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-] {2,10}$/g), Validators.required]),
+    email: new FormControl<string>("", [Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,10}$/g), Validators.required]),
     password: new FormControl<string>("", [Validators.required]),
     phone: new FormControl<string>(""),
     mobilePhone: new FormControl<string>("")
@@ -40,7 +35,7 @@ export class RegistrationComponent {
     console.log(this.formGroup);
     if(this.formGroup.valid){
       this.userControllerService.register(this.formGroup.getRawValue()).subscribe(value => {
-        this.router.navigateByUrl( "auth/login")
+        this.router.navigateByUrl( "/auth/login")
       })
     }
   }
